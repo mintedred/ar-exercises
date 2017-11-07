@@ -53,3 +53,13 @@ puts r
 @store2.employees.create(first_name: "Nael", last_name: "Virani", hourly_rate: 160)
 @store2.employees.create(first_name: "Sam", last_name: "Virani", hourly_rate: 40)
 @store2.employees.create(first_name: "Paul", last_name: "Virani", hourly_rate: 60)
+
+puts "Enter a store name: "
+name = gets.chomp
+
+new = Store.create(name: name)
+messages = new.errors.full_messages
+
+messages.each do |error|
+  puts "Error! #{error}"
+end
