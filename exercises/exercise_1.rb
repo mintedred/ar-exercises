@@ -40,3 +40,10 @@ end
 @womens_apparel.each do |s|
   puts "#{s.name} -- #{s.annual_revenue}"
 end
+
+
+total_revenue = Store.sum(:annual_revenue)
+average_revenue = Store.average(:annual_revenue)
+
+r = Store.where("annual_revenue >= ?", 1000000).count
+puts r
