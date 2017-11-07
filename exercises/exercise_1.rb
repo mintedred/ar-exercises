@@ -3,7 +3,6 @@ require_relative '../setup'
 puts "Exercise 1"
 puts "----------"
 
-# Your code goes below here ...
 
 Store.create(name: 'Burnaby', annual_revenue: 300000, mens_apparel: true, womens_apparel: true )
 
@@ -21,3 +20,23 @@ puts Store.count
 @store3.destroy
 
 puts Store.count
+
+
+
+Store.create(name: 'Surrey', annual_revenue: 224000, mens_apparel: false, womens_apparel: true )
+
+Store.create(name: 'Whistler', annual_revenue: 1900000, mens_apparel: true, womens_apparel: false )
+
+Store.create(name: 'Yaletown', annual_revenue: 430000, mens_apparel: true, womens_apparel: true )
+
+@mens_stores = Store.where(mens_apparel: true)
+
+@mens_stores.each do |store|
+  puts "#{store.name} -- #{store.annual_revenue}"
+end
+
+@womens_apparel = Store.where("womens_apparel = ? AND annual_revenue < ?", true, 1000000)
+
+@womens_apparel.each do |s|
+  puts "#{s.name} -- #{s.annual_revenue}"
+end
