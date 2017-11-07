@@ -17,4 +17,7 @@ puts Store.count
 @store2 = Store.find(2)
 @store1.name = "Markham"
 
-puts @store1.name
+@store3 = Store.find(3)
+@store3.destroy
+
+puts Store.count
